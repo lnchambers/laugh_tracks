@@ -5,14 +5,9 @@ get "/" do
 end
 
 get "/comedians" do
-  @comedians = Comedian.all
+  @comedians = Comedian.where(params)
   @specials = Special.all
   erb :index
-end
-
-get "/comedians?:age" do
-  @comedians = Comedian.where(:age)
-  erb :show
 end
 
 end
